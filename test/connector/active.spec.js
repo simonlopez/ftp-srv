@@ -52,7 +52,7 @@ describe('Connector - Active //', function () {
     return active.setupConnection('123.45.67.89', PORT)
     .catch((err) => {
       expect(err.code).to.equal(500);
-      expect(err.message).to.equal('The given address is not yours');
+      expect(err.message).to.equal('The given address is not yours (123.45.67.89)');
     })
     .then(() => {
       expect(active.dataSocket).not.to.exist;

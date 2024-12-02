@@ -30,7 +30,7 @@ class Active extends Connector {
     return closeExistingServer()
     .then(() => {
       if (!ip.isEqual(this.connection.commandSocket.remoteAddress, host)) {
-        throw new SocketError('The given address is not yours', 500);
+        throw new SocketError(`The given address is not yours (${this.connection.commandSocket.remoteAddress})`, 500);
       }
 
       this.dataSocket = new Socket();
